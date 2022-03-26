@@ -1,9 +1,10 @@
 import os
+import shutil
 import sys
 
 import pafy
 from PyQt5.QtWidgets import QMainWindow, QApplication, QFileDialog, QMessageBox
-
+from pytube import YouTube
 
 from main import Ui_MainWindow
 
@@ -14,6 +15,28 @@ class MainApp (QMainWindow, Ui_MainWindow):
          self.setupUi(self)
 
          self.Handel_Buttons()
+    def OneVideo(self):
+        link=self.lineEdit_3.text()
+        download_path=self.lineEdit_4.text()
+        video=YouTube(link, on_progress_callback=self.progress_function).streams.get_highest_resolution().download()
+
+        shutil.move(video,download_path)
+    def saveLocation(self):
+        save_location=QFileDialog.getExistingDirectory(self, caption="Save in", directory="C:")
+        self.lineEdit_4.setText(str(save_location))
+    def progress_function(self, stream, chunk, file_handle, bytes_remaining):
+        size = stream.filesize
+        p = 0
+        while p <= 100:
+            progress = p
+            self.progressBar.setValue(progress)
+            #p = self.percent(bytes_remaining, size)
+
+
+    def percent(self, tem, total):
+        perc = (float(tem) / float(total)) * float(100)
+        return perc
+
     def Handel_Buttons(self):
         self.pushButton_6.clicked.connect(self.Playlist_Download)
         self.pushButton_7.clicked.connect(self.Playlist_Save_Browse)
