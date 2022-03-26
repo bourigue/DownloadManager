@@ -28,9 +28,10 @@ class MainApp (QMainWindow, Ui_MainWindow):
             save_location = self.lineEdit_6.text()
 
             if playlist_url == '' or save_location == '':
-                QMessageBox.warning(self, "Data Error", "Provide a valid Playlist URL or save location")
+                QMessageBox.warning(self, "Data ror", "Provide a valid Playlist URL or save location")
 
             else:
+
                 playlist = pafy.get_playlist(playlist_url)
                 playlist_videos = playlist['items']
 
