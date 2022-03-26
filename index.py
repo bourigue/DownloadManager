@@ -12,7 +12,7 @@ class MainApp (QMainWindow, Ui_MainWindow):
          self.pushButton_2.clicked.connect(self.prin)
 
     def prin(self):
-        self.lineEdit_2.setText("hello haasasa")
+        self.lineEdit_2.setText("hello no one")
 
 
 
