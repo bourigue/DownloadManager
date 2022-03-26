@@ -14,7 +14,7 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
-        MainWindow.resize(527, 333)
+        MainWindow.resize(527, 332)
         self.centralwidget = QtWidgets.QWidget(MainWindow)
         self.centralwidget.setObjectName("centralwidget")
         self.tabWidget = QtWidgets.QTabWidget(self.centralwidget)
@@ -25,7 +25,7 @@ class Ui_MainWindow(object):
         self.tab = QtWidgets.QWidget()
         self.tab.setObjectName("tab")
         self.pushButton = QtWidgets.QPushButton(self.tab)
-        self.pushButton.setGeometry(QtCore.QRect(210, 190, 101, 23))
+        self.pushButton.setGeometry(QtCore.QRect(210, 190, 121, 41))
         font = QtGui.QFont()
         font.setFamily("Segoe UI Semibold")
         font.setPointSize(14)
@@ -186,11 +186,14 @@ class Ui_MainWindow(object):
         font.setPointSize(12)
         self.lineEdit_6.setFont(font)
         self.lineEdit_6.setObjectName("lineEdit_6")
+        self.pushButton_8 = QtWidgets.QPushButton(self.tab_4)
+        self.pushButton_8.setGeometry(QtCore.QRect(180, 210, 93, 28))
+        self.pushButton_8.setObjectName("pushButton_8")
         self.tabWidget_2.addTab(self.tab_4, "")
         self.tabWidget.addTab(self.tab_2, "")
         MainWindow.setCentralWidget(self.centralwidget)
         self.menubar = QtWidgets.QMenuBar(MainWindow)
-        self.menubar.setGeometry(QtCore.QRect(0, 0, 527, 21))
+        self.menubar.setGeometry(QtCore.QRect(0, 0, 527, 26))
         self.menubar.setObjectName("menubar")
         MainWindow.setMenuBar(self.menubar)
         self.statusbar = QtWidgets.QStatusBar(MainWindow)
@@ -198,8 +201,9 @@ class Ui_MainWindow(object):
         MainWindow.setStatusBar(self.statusbar)
 
         self.retranslateUi(MainWindow)
-        self.tabWidget.setCurrentIndex(0)
-        self.tabWidget_2.setCurrentIndex(0)
+        self.tabWidget.setCurrentIndex(1)
+        self.tabWidget_2.setCurrentIndex(1)
+        self.pushButton_2.clicked.connect(self.lineEdit_2.paste) # type: ignore
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
     def retranslateUi(self, MainWindow):
@@ -232,9 +236,7 @@ class Ui_MainWindow(object):
         self.label_2.setText(_translate("MainWindow", "The Current Video:"))
         self.label_3.setText(_translate("MainWindow", "The Full PlayList Video:"))
         self.lineEdit_6.setPlaceholderText(_translate("MainWindow", "Save location"))
+        self.pushButton_8.setText(_translate("MainWindow", "start"))
         self.tabWidget_2.setTabText(self.tabWidget_2.indexOf(self.tab_4), _translate("MainWindow", "Playlist Video"))
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab_2), _translate("MainWindow", "Tab 2"))
-
-
-
 
