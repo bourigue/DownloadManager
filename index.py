@@ -10,8 +10,9 @@ class MainApp (QMainWindow, Ui_MainWindow):
          super (MainApp, self).__init__(parent)
          self.setupUi(self)
          self.pushButton_2.clicked.connect(self.prin)
+
     def prin(self):
-        self.lineEdit_2.setText("hello rachid")
+        self.lineEdit_2.setText("hello haasasa")
 
 
 
